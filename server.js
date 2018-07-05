@@ -51,7 +51,8 @@ app.get("/saved", (req, res) => {
 });
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/mongoosescraper");
+const url = process.env.MONGODB_URI || "mongodb://localhost/mongoosescraper";
+mongoose.connect(url);
 var db = mongoose.connection
 
 // show db errors 
