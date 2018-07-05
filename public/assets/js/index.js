@@ -22,26 +22,28 @@ $(document).ready(function(){
       .then(res => {
         console.log('res: ', res)
         var articles = res.data.articles
-        articles.forEach(a => {
-          $("#articles").prepend(
-            `<div class="container">
-              <div class="card article-item">
-                <h5 class="card-header title">${a.title}</h5>
-                <div class="card-body">
-                  <p class="card-text summary">${a.summary}</p>
-                  <p class="card-text url">${a.url}</p>
+        if (articles) {
+          articles.forEach(a => {
+            $("#articles").prepend(
+              `<div class="container">
+                <div class="card article-item">
+                  <h5 class="card-header title">${a.title}</h5>
+                  <div class="card-body">
+                    <p class="card-text summary">${a.summary}</p>
+                    <p class="card-text url">${a.url}</p>
+                  </div>
+                  <button id="save_article"
+                  article-url="${a.url}"
+                  article-summary="${a.summary}"
+                  article-title="${a.title}"
+                  // article-time="${a.time}"
+                  article-a="${a}"
+                  type="button" class="btn btn-success index-btn">Save Article!</button>
                 </div>
-                <button id="save_article"
-                article-url="${a.url}"
-                article-summary="${a.summary}"
-                article-title="${a.title}"
-                // article-time="${a.time}"
-                article-a="${a}"
-                type="button" class="btn btn-success">Save Article!</button>
-              </div>
-            </div>`
-          )
-        })
+              </div>`
+            )
+          })
+        }
         // show modal
         $("#scrape_results_label").text(`Added ${articles.length} new Articles!`)
         $('#scrape_results_modal').modal('show'); 

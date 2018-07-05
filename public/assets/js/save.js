@@ -19,14 +19,19 @@ $(document).ready(function(){
                 <div class="card-body">
                   <p class="card-text summary">${a.summary}</p>
                   <p class="card-text url">${a.url}</p>
-                  
                 </div>
-                <button id="view_notes"
-                article-id="${a._id}"
-                type="button" class="btn btn-success">Article Notes</button>
-                <button id="delete_article"
-                article-id="${a._id}"
-                type="button" class="btn btn-danger">Delete From Saved</button>
+                <div class="row saved-btn-alignment">
+                <div class="col-xs-6">
+                  <button id="view_notes" article-id="${a._id}" type="button" class="btn btn-success saved-btn">
+                    Article Notes
+                  </button>
+                </div>
+                <div class="col-xs-6">
+                  <button id="delete_article" article-id="${a._id}" type="button" class="btn btn-danger saved-btn">
+                    Delete From Saved
+                  </button>
+                </div>
+                </div>
               </div>
             </div>`
         )

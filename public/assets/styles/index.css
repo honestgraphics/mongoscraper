@@ -24,6 +24,38 @@ body {
   position: relative;
 }
 
+.card.article-item {
+  border: 2px solid #dadada;
+  border-radius: 5px;
+}
+
+.card-header.title {
+  border: 2px solid #dadada;
+  border-radius: 5px;
+}
+
+.index-btn {
+  width: 150px;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-left: 25px;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.saved-btn-alignment {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.saved-btn {
+  width: 200px;
+  margin-bottom: 15px;
+  margin-left: 25px;
+}
+
 .caption {
   position: absolute;
   color: white;

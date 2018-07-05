@@ -97,6 +97,7 @@ app.get("/scrape", (req, res) => {
     // An empty array to save the data that we'll scrape
     var results = [];
     
+    
     // Select each element in the HTML body from which you want information.
     // NOTE: Cheerio selectors function similarly to jQuery's selectors,
     // but be sure to visit the package's npm page to see how it works
@@ -107,7 +108,8 @@ app.get("/scrape", (req, res) => {
       var url = $(element).find("h3.slide-entry-title.entry-title").find("a").attr("href");
       var summary = $(element).find(".slide-entry-excerpt.entry-content").text() || 'No summary available!'
       // console.log("summarysibling", summary);
-      var title = $(element).children("header.entry-content-header").contents([1]).text();
+      var title = $(element).contents([1]).children("h3.slide-entry-title.entry-title").text();
+      // var newTitle = $(element).children("header.entry-content-header").contents([1])
       // Save these results in an object that we'll push into the results array we defined earlier
       results.push({
         // time: 'This feature will be added in the near future!',
@@ -116,6 +118,8 @@ app.get("/scrape", (req, res) => {
         url: url
       });
     });
+
+    
     
     // console.log("entrysummary", $(".entry-content").html())
     // $(".entry-content").each(function(i, element) {
